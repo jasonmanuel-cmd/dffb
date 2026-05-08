@@ -23,7 +23,9 @@
     <meta property="og:image" content="https://dffbseniorliving.com/dffb-logo.png">
     <link rel="canonical" href="https://dffbseniorliving.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="styles.css">
     <script type="application/ld+json">
     {
@@ -137,7 +139,11 @@
     </script>
     <div id="splash-screen" class="splash" role="dialog" aria-modal="true" aria-labelledby="splash-wordmark" aria-describedby="splash-tag">
         <div class="splash__inner">
-            <img class="splash__logo" src="dffb-logo.png" alt="">
+        <picture>
+          <source srcset="dffb-logo.avif" type="image/avif">
+          <source srcset="dffb-logo.webp" type="image/webp">
+          <img class="splash__logo" src="dffb-logo.png" alt="" width="990" height="1024" decoding="async" fetchpriority="high">
+        </picture>
             <p class="splash__wordmark" id="splash-wordmark">DFFB Senior Living</p>
             <p class="splash__tagline" id="splash-tag">Safe, affordable, home-based care for California families.</p>
             <div class="splash__rule" aria-hidden="true"></div>
@@ -154,7 +160,11 @@
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="index.html">
-                <img src="dffb-logo.png" alt="DFFB Senior Living logo">
+          <picture>
+            <source srcset="dffb-logo.avif" type="image/avif">
+            <source srcset="dffb-logo.webp" type="image/webp">
+            <img src="dffb-logo.png" alt="DFFB Senior Living logo" width="990" height="1024" decoding="async" fetchpriority="high">
+          </picture>
                 <span>DFFB SENIOR LIVING</span>
             </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">Menu</button>

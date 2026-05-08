@@ -14,7 +14,9 @@
     <meta property="og:url" content="https://dffbseniorliving.com/families.html">
     <link rel="canonical" href="https://dffbseniorliving.com/families.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="styles.css">
     <script type="application/ld+json">
     {
@@ -66,7 +68,11 @@
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="index.html">
-                <img src="dffb-logo.png" alt="DFFB Senior Living logo">
+                <picture>
+                  <source srcset="dffb-logo.avif" type="image/avif">
+                  <source srcset="dffb-logo.webp" type="image/webp">
+                  <img src="dffb-logo.png" alt="DFFB Senior Living logo" width="990" height="1024" decoding="async" fetchpriority="high">
+                </picture>
                 <span>DFFB SENIOR LIVING</span>
             </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">Menu</button>
