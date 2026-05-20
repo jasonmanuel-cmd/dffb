@@ -1,0 +1,47 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="my-14">
+  {title && (
+    <div class="mb-8">
+      <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-3">{title}</h2>
+      {subtitle && <p class="text-text-light/80 max-w-[65ch]">{subtitle}</p>}
+    </div>
+  )}
+  <div class="space-y-5">
+    <div class="card flex gap-4 items-start">
+      <span class="bg-gold/20 text-gold text-lg font-bold rounded-full w-9 h-9 flex items-center justify-center shrink-0 mt-0.5">1</span>
+      <div>
+        <h3 class="font-semibold text-white mb-1">Contact & Qualification</h3>
+        <p class="text-sm text-text-light/75">Submit your property or interest. We review location, layout, zoning, and partnership fit within 48 hours.</p>
+      </div>
+    </div>
+    <div class="card flex gap-4 items-start">
+      <span class="bg-gold/20 text-gold text-lg font-bold rounded-full w-9 h-9 flex items-center justify-center shrink-0 mt-0.5">2</span>
+      <div>
+        <h3 class="font-semibold text-white mb-1">Proposal & Structure</h3>
+        <p class="text-sm text-text-light/75">We present a detailed partnership structure with revenue projections, operating plan, and legal framework.</p>
+      </div>
+    </div>
+    <div class="card flex gap-4 items-start">
+      <span class="bg-gold/20 text-gold text-lg font-bold rounded-full w-9 h-9 flex items-center justify-center shrink-0 mt-0.5">3</span>
+      <div>
+        <h3 class="font-semibold text-white mb-1">Licensing & Setup</h3>
+        <p class="text-sm text-text-light/75">DFFB manages CDSS licensing, fire/life safety approvals, staffing recruitment, and operational setup.</p>
+      </div>
+    </div>
+    <div class="card flex gap-4 items-start">
+      <span class="bg-gold/20 text-gold text-lg font-bold rounded-full w-9 h-9 flex items-center justify-center shrink-0 mt-0.5">4</span>
+      <div>
+        <h3 class="font-semibold text-white mb-1">Operations & Revenue</h3>
+        <p class="text-sm text-text-light/75">Home goes live. DFFB manages day-to-day operations, resident placement, care coordination, and compliance. You receive predictable income.</p>
+      </div>
+    </div>
+  </div>
+</section>

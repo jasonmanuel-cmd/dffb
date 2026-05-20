@@ -1,0 +1,20 @@
+---
+export interface Props {
+  headline: string;
+  cta?: string;
+  ctaLink?: string;
+}
+
+const { headline, cta, ctaLink } = Astro.props;
+---
+
+<section class="my-10 md:my-12">
+  <div class="card flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+    <h2 class="text-xl md:text-2xl font-semibold text-beige m-0">{headline}</h2>
+    {cta && (
+      <a href={ctaLink || "/contact"} class="btn btn-primary text-sm whitespace-nowrap shrink-0">
+        {cta}
+      </a>
+    )}
+  </div>
+</section>

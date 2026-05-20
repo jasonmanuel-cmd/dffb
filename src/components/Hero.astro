@@ -1,0 +1,41 @@
+---
+import site from "../content/site.json";
+
+export interface Props {
+  headline: string;
+  subheadline: string;
+  cta1?: string;
+  cta1Link?: string;
+  cta2?: string;
+  cta2Link?: string;
+  supportingLine?: string;
+}
+
+const { headline, subheadline, cta1, cta1Link, cta2, cta2Link, supportingLine } = Astro.props;
+---
+
+<section class="py-16 md:py-24">
+  <div class="max-w-4xl">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white mb-5">
+      {headline}
+    </h1>
+    <p class="text-lg md:text-xl text-text-light/90 leading-relaxed max-w-[65ch] mb-8">
+      {subheadline}
+    </p>
+    <div class="flex flex-wrap gap-3">
+      {cta1 && (
+        <a href={cta1Link || "/contact"} class="btn btn-primary text-base px-7 py-3.5">
+          {cta1}
+        </a>
+      )}
+      {cta2 && (
+        <a href={cta2Link || "/contact"} class="btn btn-secondary text-base px-7 py-3.5">
+          {cta2}
+        </a>
+      )}
+    </div>
+    {supportingLine && (
+      <p class="mt-5 text-sm text-text-light/60">{supportingLine}</p>
+    )}
+  </div>
+</section>

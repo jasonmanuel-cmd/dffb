@@ -1,0 +1,42 @@
+---
+import type { Props as CtaBarProps } from "./CtaBar.astro";
+import CtaBar from "./CtaBar.astro";
+---
+
+<section class="my-14">
+  <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-8">Who We Partner With</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="card flex flex-col">
+      <span class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Owners</span>
+      <h3 class="text-xl font-semibold text-white mb-2">Property Owners & Landlords</h3>
+      <p class="text-sm text-text-light/80 leading-relaxed flex-1 mb-4">
+        Convert your property from traditional rental to a licensed residential care facility. DFFB handles licensing, staffing, operations, and compliance. You collect rent backed by recurring care revenue — not vacancy risk.
+      </p>
+      <a href="/owners" class="btn btn-secondary text-sm self-start">Learn More</a>
+    </div>
+    <div class="card flex flex-col">
+      <span class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Investors</span>
+      <h3 class="text-xl font-semibold text-white mb-2">Capital & Investment Partners</h3>
+      <p class="text-sm text-text-light/80 leading-relaxed flex-1 mb-4">
+        Direct property investment or partnership with a vertically integrated operator. Recurring revenue, real estate appreciation, and demographic tailwinds. Multiple entry points including debt, equity, JV, and property ownership.
+      </p>
+      <a href="/investors" class="btn btn-secondary text-sm self-start">View Thesis</a>
+    </div>
+    <div class="card flex flex-col">
+      <span class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Partners</span>
+      <h3 class="text-xl font-semibold text-white mb-2">Operators & PM Companies</h3>
+      <p class="text-sm text-text-light/80 leading-relaxed flex-1 mb-4">
+        Access centralized licensing support, staffing pipelines, compliance infrastructure, and care coordination. Keep your identity while leveraging institutional-grade backend systems.
+      </p>
+      <a href="/partner" class="btn btn-secondary text-sm self-start">Explore Models</a>
+    </div>
+    <div class="card flex flex-col">
+      <span class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Families</span>
+      <h3 class="text-xl font-semibold text-white mb-2">Families Seeking Care</h3>
+      <p class="text-sm text-text-light/80 leading-relaxed flex-1 mb-4">
+        Safe, affordable, home-style senior housing with continuum-of-care support. Small homes with personalized assistance from independent living through assisted care.
+      </p>
+      <a href="/contact?type=family" class="btn btn-secondary text-sm self-start">Find Care</a>
+    </div>
+  </div>
+</section>

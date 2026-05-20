@@ -1,0 +1,26 @@
+[
+  {
+    "city": "Bakersfield",
+    "county": "Kern County",
+    "status": "active",
+    "demandNotes": "Kern County's 55+ population is growing 2x faster than the state average. Limited residential care bed supply creates strong pricing power for licensed homes.",
+    "demographicNotes": "Median age 33. 55+ population expected to increase 28% by 2030. Growing retiree inflow from higher-cost coastal areas.",
+    "description": "DFFB's home market. Active licensed properties with established referral relationships and full operational infrastructure."
+  },
+  {
+    "city": "Los Angeles Basin",
+    "county": "Los Angeles, Orange, San Bernardino",
+    "status": "growth",
+    "demandNotes": "Massive senior population with severe shortage of affordable residential care beds. Average RCFE wait times exceed 90 days in many submarkets.",
+    "demographicNotes": "Over 2.5 million residents aged 65+ across the basin. Largest senior population in California with the most severe housing cost burden.",
+    "description": "Expansion target. DFFB is actively reviewing properties and partnership opportunities in LA, Orange, and Inland Empire counties."
+  },
+  {
+    "city": "Central Valley Corridor",
+    "county": "Fresno, Tulare, Kings",
+    "status": "exploration",
+    "demandNotes": "Growing retiree population with limited licensed care options. Fresno County 65+ population projected to grow 35% by 2035.",
+    "demographicNotes": "Lower cost of entry for real estate compared to coastal markets. Strong family caregiving culture creating demand for home-style settings.",
+    "description": "Development corridor. DFFB is building operator relationships and evaluating properties for future licensed homes."
+  }
+]

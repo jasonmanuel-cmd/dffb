@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MarketsGrid from "../components/MarketsGrid.astro";
+import CtaBar from "../components/CtaBar.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="Markets"
+  description="DFFB Senior Living active and target markets across California: Bakersfield (active), Los Angeles Basin (growth), Central Valley Corridor (exploration)."
+  canonical="https://dffbseniorliving.com/markets"
+>
+  <section class="mb-10">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white mb-4">Our Markets</h1>
+    <p class="text-text-light/90 leading-relaxed max-w-[65ch]">
+      DFFB targets high-demand California markets with favorable demographics, reasonable property valuations, and clear regulatory pathways for residential care licensing.
+    </p>
+  </section>
+
+  <MarketsGrid />
+
+  <section class="my-14 card">
+    <h2 class="text-xl md:text-2xl font-semibold text-beige mb-4">Market Selection Criteria</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-1.5">Demographics</h3>
+        <p class="text-xs text-text-light/70">High proportion of seniors 65+, growing population, limited existing RCFE supply per capita.</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-1.5">Real Estate</h3>
+        <p class="text-xs text-text-light/70">Reasonable property acquisition costs relative to revenue potential. Favorable rent-to-value ratios.</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-1.5">Regulatory</h3>
+        <p class="text-xs text-text-light/70">Clear RCFE licensing pathways. Cooperative local fire and health departments. Established zoning for residential care.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="Have a property in one of these markets?"
+    cta="Submit a Property for Review"
+  />
+</BaseLayout>

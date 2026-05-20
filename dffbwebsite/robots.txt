@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /geo-citation-sprint.html
+Disallow: /thank-you.html
+
+Sitemap: https://dffbseniorliving.com/sitemap.xml

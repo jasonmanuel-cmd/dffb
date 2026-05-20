@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBar from "../components/CtaBar.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="Frequently Asked Questions"
+  description="Common questions about DFFB Senior Living's partnership model, operations, licensing, investment structures, and property requirements."
+  canonical="https://dffbseniorliving.com/faq"
+>
+  <section class="mb-10">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white mb-4">Frequently Asked Questions</h1>
+    <p class="text-text-light/90 leading-relaxed max-w-[65ch]">
+      Common questions about the DFFB model, partnerships, and opportunities.
+    </p>
+  </section>
+
+  <FaqAccordion />
+
+  <CtaBar
+    headline="Still have questions?"
+    cta="Book a Partnership Call"
+  />
+</BaseLayout>

@@ -1,0 +1,85 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonical, ogImage, noindex } = Astro.props;
+const site = "https://dffbseniorliving.com";
+const og = ogImage || `${site}/dffb-logo.png`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | DFFB Senior Living</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical || site} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={og} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical || site} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <link rel="stylesheet" href="/src/styles/globals.css" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNGD74ZHB4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XNGD74ZHB4');
+    </script>
+  </head>
+  <body class="bg-gradient-to-b from-navy to-navy-dark min-h-screen">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <Header />
+    <main id="main-content" class="section-container py-6 md:py-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  (function () {
+    const toggle = document.querySelector(".nav-toggle");
+    const inner = document.querySelector(".header-inner");
+    if (toggle && inner) {
+      toggle.addEventListener("click", function () {
+        const open = inner.classList.toggle("menu-open");
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    }
+  })();
+</script>

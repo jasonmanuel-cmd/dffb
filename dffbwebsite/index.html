@@ -22,6 +22,7 @@
     <meta property="og:url" content="https://dffbseniorliving.com/">
     <meta property="og:image" content="https://dffbseniorliving.com/dffb-logo.png">
     <link rel="canonical" href="https://dffbseniorliving.com/">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
@@ -128,6 +129,7 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <script>
       try {
         if (sessionStorage.getItem("dffb_splash_session")) {
@@ -155,9 +157,8 @@
         <div class="header-inner">
             <a class="brand" href="index.html">
           <picture>
-            <source srcset="dffb-logo.avif" type="image/avif">
-            <source srcset="dffb-logo.webp" type="image/webp">
-            <img src="dffb-logo.png" alt="DFFB Senior Living logo" width="990" height="1024" decoding="async" fetchpriority="high">
+            <source srcset="dffb-logo-small.webp" type="image/webp">
+            <img src="dffb-logo-small.png" alt="DFFB Senior Living logo" width="200" height="207" decoding="async">
           </picture>
                 <span>DFFB SENIOR LIVING</span>
             </a>
@@ -175,7 +176,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="panel">
                 <h1>A New Standard in Senior Living - Safe, Affordable, Home-Based Care</h1>

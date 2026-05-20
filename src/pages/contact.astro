@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Contact DFFB Senior Living. Property owners, investors, operators, and families can reach us directly or via our contact form."
+  canonical="https://dffbseniorliving.com/contact"
+>
+  <section class="mb-10">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white mb-4">Get in Touch</h1>
+    <p class="text-text-light/90 leading-relaxed max-w-[65ch]">
+      Whether you are a property owner, investor, operator, or family seeking care &mdash; we'd like to hear from you.
+    </p>
+  </section>
+
+  <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 my-8">
+    <div>
+      <ContactForm />
+    </div>
+    <aside class="space-y-4 md:min-w-[200px]">
+      <div class="card text-sm">
+        <p class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">Direct Contact</p>
+        <p><a href={`tel:${site.phoneLink}`} class="text-beige no-underline text-base font-semibold whitespace-nowrap">{site.phone}</a></p>
+        <p><a href={`mailto:${site.email}`} class="text-beige no-underline text-sm break-all">{site.email}</a></p>
+      </div>
+      <div class="card text-sm">
+        <p class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">Location</p>
+        <p class="text-text-light/80">{site.address}</p>
+      </div>
+    </aside>
+  </div>
+
+  <TrustStrip />
+</BaseLayout>

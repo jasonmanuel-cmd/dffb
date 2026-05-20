@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import EconomicsBand from "../components/EconomicsBand.astro";
+import PartnershipGrid from "../components/PartnershipGrid.astro";
+import ProcessTimeline from "../components/ProcessTimeline.astro";
+import TestimonialGrid from "../components/TestimonialGrid.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import CtaBar from "../components/CtaBar.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="Senior Living Investment & Partnership Platform"
+  description="DFFB Senior Living partners with property owners, investors, and operators to build licensed residential care facilities. California small-home model with institutional operational support."
+  canonical="https://dffbseniorliving.com/"
+>
+  <Hero
+    headline="Senior Living That Works for Everyone"
+    subheadline="DFFB Management Group converts conventional residential real estate into licensed, professionally managed senior care homes. We partner with property owners, investors, and operators to build a scalable portfolio of residential care facilities across California."
+    cta1="Book a Partnership Call"
+    cta1Link="/contact"
+    cta2="Submit a Property for Review"
+    cta2Link="/owners"
+    supportingLine="Licensed RCFE operator &middot; Institutional compliance &middot; Small-home economics"
+  />
+
+  <EconomicsBand
+    title="The Economics of a Single Home"
+  />
+
+  <PartnershipGrid />
+
+  <ProcessTimeline
+    title="How a Partnership Works"
+    subtitle="From initial conversation to revenue-generating operation."
+  />
+
+  <TestimonialGrid
+    title="What Partners Say"
+  />
+
+  <TrustStrip />
+
+  <CtaBar
+    headline="Ready to explore a partnership?"
+    cta="Book a Partnership Call"
+  />
+</BaseLayout>

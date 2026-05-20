@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-text-light bg-navy;
+    -webkit-text-size-adjust: 100%;
+  }
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-full font-semibold min-h-[44px] text-center leading-none border border-transparent transition-all duration-200;
+  }
+  .btn-primary {
+    @apply bg-gold text-navy-dark hover:brightness-110;
+  }
+  .btn-secondary {
+    @apply border-beige text-beige hover:bg-beige hover:text-navy-dark;
+  }
+  .btn-alert {
+    @apply bg-alert text-white hover:brightness-110;
+  }
+
+  .skip-link {
+    @apply absolute -top-full left-0 z-[10000] px-4 py-2.5 bg-gold text-navy-dark font-bold no-underline rounded-b-lg transition-all duration-150;
+  }
+  .skip-link:focus {
+    @apply top-0;
+  }
+
+  .section-container {
+    @apply max-w-[1160px] mx-auto px-5 md:px-6;
+  }
+
+  .card {
+    @apply bg-white/5 border border-white/15 rounded-2xl p-6 md:p-7;
+  }
+
+  .card-gold-border {
+    @apply bg-white/5 border-l-4 border-gold rounded-r-2xl p-5;
+  }
+
+  .metric {
+    @apply border-l-2 border-gold pl-3 mt-2.5;
+  }
+
+  .trust-list li {
+    @apply pl-5 relative mb-2.5;
+  }
+  .trust-list li::before {
+    content: "";
+    @apply absolute left-0 top-2.5 w-2 h-2 rounded-full bg-gold;
+  }
+}

@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import CtaBar from "../components/CtaBar.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="Partner With Us"
+  description="Explore partnership models with DFFB Senior Living. Whether you are a property owner, investor, or operator, we have a partnership structure for you."
+  canonical="https://dffbseniorliving.com/partner"
+>
+  <Hero
+    headline="Partner With Us"
+    subheadline="Multiple entry points for different partnership goals. Every relationship is structured around shared economics and aligned incentives."
+  />
+
+  <section class="my-14">
+    <div class="space-y-5">
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white mb-1">Master Lease Partnership</h2>
+        <p class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Property Owners</p>
+        <p class="text-sm text-text-light/80 leading-relaxed">
+          DFFB enters a master lease on your property, guaranteeing monthly rent regardless of occupancy. DFFB handles all licensing, staffing, operations, and compliance. You receive predictable income without operational risk.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white mb-1">Joint Venture (JV)</h2>
+        <p class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Investors & Owners</p>
+        <p class="text-sm text-text-light/80 leading-relaxed">
+          You contribute the property or capital. DFFB contributes licensing, operations, management, and access to placement networks. Profits shared per agreed structure.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white mb-1">Property Sale & Leaseback</h2>
+        <p class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Owners Seeking Liquidity</p>
+        <p class="text-sm text-text-light/80 leading-relaxed">
+          Sell your property to DFFB at market value and lease it back under a long-term operational lease. Unlock your equity while the property continues generating revenue for your portfolio.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white mb-1">Revenue Share</h2>
+        <p class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">For Referral Partners & Operators</p>
+        <p class="text-sm text-text-light/80 leading-relaxed">
+          Refer properties, residents, or partnership opportunities. Receive a proportional share of gross revenue for the life of the partnership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="Which model fits your situation?"
+    cta="Book a Partnership Call"
+  />
+</BaseLayout>

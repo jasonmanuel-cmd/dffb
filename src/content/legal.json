@@ -1,0 +1,13 @@
+{
+  "disclaimers": {
+    "economics": "Representative economics based on current DFFB operating homes. Actual results vary by property, occupancy, market conditions, and regulatory environment. Past performance does not guarantee future results.",
+    "securities": "Any offer of securities, if made, will be made only to qualified investors pursuant to applicable exemptions under Regulation D of the Securities Act of 1933, as amended. Nothing on this website constitutes an offer to sell or a solicitation of an offer to buy any security.",
+    "general": "This website is for informational purposes only and does not constitute legal, tax, or investment advice. You should consult with qualified professionals before making any investment or business decision.",
+    "licensing": "DFFB Management Group operates licensed Residential Care Facilities for the Elderly (RCFEs) in California. Licensing status varies by property. Contact us for specific licensing details for any property."
+  },
+  "privacy": {
+    "effectiveDate": "2026-01-01",
+    "summary": "We collect minimal personal information (name, email, phone, message content) through our contact form. Data is transmitted securely via Formspree and stored only for the purpose of responding to your inquiry. We do not sell, share, or rent your personal information to third parties. We may use Google Analytics (anonymized) for site traffic analysis. By using this site you consent to this privacy policy.",
+    "contactEmail": "info@dffbmanagementgroup.com"
+  }
+}

@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ProcessTimeline from "../components/ProcessTimeline.astro";
+import CtaBar from "../components/CtaBar.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="For Property Owners"
+  description="Convert your California residential property into a licensed senior care home. DFFB manages licensing, operations, staffing. You collect predictable revenue."
+  canonical="https://dffbseniorliving.com/owners"
+>
+  <Hero
+    headline="Turn Your Property Into a Revenue-Generating Care Home"
+    subheadline="Stop chasing tenants and managing vacancies. DFFB converts your residential property into a licensed Residential Care Facility for the Elderly (RCFE) and handles every aspect of operations."
+    cta1="Submit a Property for Review"
+    cta1Link="/contact"
+    cta2="Book a Partnership Call"
+    cta2Link="/contact"
+    supportingLine="No operational burden &middot; Predictable monthly income &middot; Vacancy-proof structure"
+  />
+
+  <section class="my-14">
+    <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-8">Why Partner With DFFB?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Vacancy-Proof Income</h3>
+        <p class="text-sm text-text-light/80">Your rent is guaranteed by DFFB, not by individual tenants. Whether the home has 4 residents or 8, your payment arrives every month.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Zero Operational Burden</h3>
+        <p class="text-sm text-text-light/80">DFFB handles licensing applications, staffing, care coordination, compliance reporting, insurance, and facility maintenance.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Higher Property Value</h3>
+        <p class="text-sm text-text-light/80">A licensed RCFE property generates materially higher income than a standard SFR. This increased NOI directly boosts property valuation.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Community Impact</h3>
+        <p class="text-sm text-text-light/80">Your property becomes a home for seniors who need safe, affordable care in a residential setting. Purpose-driven returns.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-14 card">
+    <h2 class="text-xl md:text-2xl font-semibold text-beige mb-4">Property Requirements</h2>
+    <ul class="space-y-3 text-sm text-text-light/80">
+      <li class="flex items-start gap-2"><span class="text-gold mt-0.5">&check;</span> <span><strong class="text-white">Location:</strong> Bakersfield, Los Angeles Basin, or Central Valley corridor</span></li>
+      <li class="flex items-start gap-2"><span class="text-gold mt-0.5">&check;</span> <span><strong class="text-white">Zoning:</strong> Must support or be eligible for residential care use (R-1 or equivalent)</span></li>
+      <li class="flex items-start gap-2"><span class="text-gold mt-0.5">&check;</span> <span><strong class="text-white">Layout:</strong> 3+ bedrooms, 2+ baths, 2,000+ sq ft preferred; single-story or ADA-adaptable</span></li>
+      <li class="flex items-start gap-2"><span class="text-gold mt-0.5">&check;</span> <span><strong class="text-white">Condition:</strong> Good structural and mechanical condition; no deferred maintenance</span></li>
+      <li class="flex items-start gap-2"><span class="text-gold mt-0.5">&check;</span> <span><strong class="text-white">Parking:</strong> Minimum 3 off-street spaces</span></li>
+    </ul>
+  </section>
+
+  <ProcessTimeline
+    title="From Submission to Revenue"
+  />
+
+  <CtaBar
+    headline="Have a property that fits?"
+    cta="Submit a Property for Review"
+  />
+</BaseLayout>

@@ -1,0 +1,18 @@
+{
+  "siteName": "DFFB Senior Living",
+  "phone": "(661) 448-2386",
+  "phoneLink": "+16614482386",
+  "email": "dffbseniorliving@gmail.com",
+  "address": "1712 19th Street Suite 216, Bakersfield, CA 93301",
+  "primaryCta": "Book a Partnership Call",
+  "primaryCtaLink": "/contact",
+  "secondaryCta": "Submit a Property for Review",
+  "secondaryCtaLink": "/contact?type=owner",
+  "socialLinks": {
+    "linktree": "https://linktr.ee/DFFB.MANAGEMENTGROUP"
+  },
+  "legal": {
+    "disclaimer": "DFFB Senior Living, operated by DFFB Management Group LLC, provides residential care placement and operational consulting. We are not a medical provider. In a medical emergency, call 911 immediately.",
+    "securitiesDisclaimer": "Investment opportunities referenced on this site are not public offerings. Securities are offered only to accredited investors via private placement memoranda. Past performance does not guarantee future results."
+  }
+}

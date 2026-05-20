@@ -1,0 +1,37 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="my-14">
+  {title && (
+    <div class="mb-8">
+      <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-3">{title}</h2>
+      {subtitle && <p class="text-text-light/80 max-w-[65ch]">{subtitle}</p>}
+    </div>
+  )}
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="card">
+      <div class="text-gold text-3xl font-bold mb-2">$32K</div>
+      <p class="font-semibold text-white text-sm">Monthly revenue per home</p>
+      <p class="text-xs text-text-light/70 mt-1">6–10 residents at market rates</p>
+    </div>
+    <div class="card">
+      <div class="text-gold text-3xl font-bold mb-2">$8K</div>
+      <p class="font-semibold text-white text-sm">Monthly net profit per home</p>
+      <p class="text-xs text-text-light/70 mt-1">After operating costs and staffing</p>
+    </div>
+    <div class="card">
+      <div class="text-gold text-3xl font-bold mb-2">6–10</div>
+      <p class="font-semibold text-white text-sm">Residents per property</p>
+      <p class="text-xs text-text-light/70 mt-1">Small-home model for higher margins</p>
+    </div>
+  </div>
+  <p class="text-xs text-text-light/50 mt-4">
+    Representative economics based on current DFFB operating homes. Actual results vary by property, occupancy, and market conditions.
+  </p>
+</section>

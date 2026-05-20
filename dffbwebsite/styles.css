@@ -33,6 +33,30 @@ a {
     color: inherit;
 }
 
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 10000;
+    padding: 10px 16px;
+    background: var(--gold);
+    color: var(--navy-dark);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+main a:not(.btn) {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* Keyboard / focus visibility */
 :focus-visible {
     outline: 2px solid var(--gold);

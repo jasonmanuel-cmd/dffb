@@ -1,8 +1,14 @@
-# Other projects in this desktop folder (not part of dffb repo)
-kato web/
-onpager ad/
-
 # OS / editor noise
 Thumbs.db
 Desktop.ini
 *.lnk
+
+# Astro / Node
+node_modules/
+dist/
+.astro/
+.netlify/
+
+# Other projects in this desktop folder (not part of dffb repo)
+kato web/
+onpager ad/

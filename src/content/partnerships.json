@@ -1,0 +1,42 @@
+[
+  {
+    "type": "owner",
+    "audience": "Property Owners & Landlords",
+    "badge": "For Owners",
+    "problem": "Traditional residential rent caps your upside. A single-family home generating $2,000–$3,000/month in rent could yield 3–5x that as a licensed residential care home.",
+    "valueProposition": "DFFB converts your property into a licensed 6-bed residential care facility (RCFE-style). We handle licensing, staffing, operations, and compliance. You collect significantly higher rent backed by recurring care revenue.",
+    "cta": "Submit Your Property",
+    "ctaLink": "/contact?type=owner",
+    "icon": "home"
+  },
+  {
+    "type": "investor",
+    "audience": "Investors & Capital Partners",
+    "badge": "For Investors",
+    "problem": "Senior housing is fragmented. Most deals are single-property, operator-dependent, and hard to scale without an experienced platform handling operations, licensing, and regulatory compliance.",
+    "valueProposition": "DFFB offers a vertically integrated senior housing investment platform: real estate acquisition or lease, operational management, care staffing, and regulatory compliance under one roof. Predictable recurring revenue backed by demographic demand.",
+    "cta": "Review Investment Thesis",
+    "ctaLink": "/investors",
+    "icon": "chart"
+  },
+  {
+    "type": "operator",
+    "audience": "Property Management & Operator Partners",
+    "badge": "For Partners",
+    "problem": "Small-scale senior care operators struggle with regulatory burden, staffing costs, and scaling past 1–2 homes without administrative infrastructure.",
+    "valueProposition": "Partner with DFFB to leverage centralized licensing support, staffing pipelines, compliance systems, and care coordination. Keep your operational identity while accessing institutional-grade backend infrastructure.",
+    "cta": "Explore Partnership Models",
+    "ctaLink": "/partner",
+    "icon": "handshake"
+  },
+  {
+    "type": "family",
+    "audience": "Families Seeking Care",
+    "badge": "For Families",
+    "problem": "Finding safe, affordable senior housing that feels like home — not an institution — is overwhelming, especially during a crisis or hospital discharge.",
+    "valueProposition": "DFFB places seniors in small residential homes (6–10 residents) with personalized support. Continuum-of-care model means your loved one doesn't have to relocate as needs change.",
+    "cta": "Find Care for a Loved One",
+    "ctaLink": "/contact?type=family",
+    "icon": "heart"
+  }
+]

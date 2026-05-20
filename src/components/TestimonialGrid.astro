@@ -1,0 +1,51 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="my-14">
+  {title && (
+    <div class="mb-8">
+      <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-3">{title}</h2>
+      {subtitle && <p class="text-text-light/80 max-w-[65ch]">{subtitle}</p>}
+    </div>
+  )}
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <blockquote class="card">
+      <p class="text-sm text-text-light/85 leading-relaxed italic mb-3">
+        "Partnering with DFFB allowed us to convert a challenging rental property into a profitable, meaningful care home. The financials speak for themselves."
+      </p>
+      <footer class="text-xs text-beige font-semibold not-italic">
+        &mdash; Property Owner, Bakersfield
+      </footer>
+    </blockquote>
+    <blockquote class="card">
+      <p class="text-sm text-text-light/85 leading-relaxed italic mb-3">
+        "The small-home model delivers better resident outcomes and better margins. DFFB's operational infrastructure gives us confidence to scale."
+      </p>
+      <footer class="text-xs text-beige font-semibold not-italic">
+        &mdash; Investment Partner, California
+      </footer>
+    </blockquote>
+    <blockquote class="card">
+      <p class="text-sm text-text-light/85 leading-relaxed italic mb-3">
+        "We were able to keep our facility operational while DFFB handled licensing, staffing, and compliance. An ideal partnership."
+      </p>
+      <footer class="text-xs text-beige font-semibold not-italic">
+        &mdash; Operator, Central Valley
+      </footer>
+    </blockquote>
+    <blockquote class="card">
+      <p class="text-sm text-text-light/85 leading-relaxed italic mb-3">
+        "The focus on compliance and care quality makes DFFB stand out. Our investors feel secure knowing operations are professionally managed."
+      </p>
+      <footer class="text-xs text-beige font-semibold not-italic">
+        &mdash; Capital Partner, Los Angeles
+      </footer>
+    </blockquote>
+  </div>
+</section>

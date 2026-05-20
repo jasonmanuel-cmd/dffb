@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import CtaBar from "../components/CtaBar.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="For Investors"
+  description="Invest in California senior housing with DFFB's vertically integrated small-home RCFE model. Recurring revenue, real estate appreciation, demographic tailwinds."
+  canonical="https://dffbseniorliving.com/investors"
+>
+  <Hero
+    headline="Invest in the Future of Senior Housing"
+    subheadline="California's senior population is growing rapidly and the supply of quality residential care is not keeping pace. DFFB offers multiple investment structures tailored to your capital goals."
+    cta1="Book an Investor Call"
+    cta1Link="/contact"
+    supportingLine="Institutional-grade operations &middot; Vertically integrated &middot; Multiple entry points"
+  />
+
+  <section class="my-14">
+    <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-8">Why Senior Housing? Why Now?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="card">
+        <div class="text-gold text-3xl font-bold mb-2">5M+</div>
+        <p class="font-semibold text-white text-sm">Californians over 65</p>
+        <p class="text-xs text-text-light/70 mt-1">Projected to reach 8.6M by 2040 &mdash; the largest demographic wave in history.</p>
+      </div>
+      <div class="card">
+        <div class="text-gold text-3xl font-bold mb-2">80%</div>
+        <p class="font-semibold text-white text-sm">Prefer home-like settings</p>
+        <p class="text-xs text-text-light/70 mt-1">Small-home RCFEs are the preferred model over institutional facilities.</p>
+      </div>
+      <div class="card">
+        <div class="text-gold text-3xl font-bold mb-2">$32K</div>
+        <p class="font-semibold text-white text-sm">Monthly gross per 6-bed home</p>
+        <p class="text-xs text-text-light/70 mt-1">Recurring, needs-based revenue independent of economic cycles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-14">
+    <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-4">Investment Structures</h2>
+    <div class="space-y-4">
+      <div class="card">
+        <h3 class="text-xl font-semibold text-white mb-1">Direct Property Investment</h3>
+        <p class="text-sm text-text-light/80">Acquire and lease a property to DFFB under a long-term master lease. You own the real estate; DFFB operates the care home. Benefits from both rental yield and property appreciation.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-xl font-semibold text-white mb-1">Debt / Senior Financing</h3>
+        <p class="text-sm text-text-light/80">Provide acquisition or renovation financing secured against properties. Priority returns with defined terms and exit timeline.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-xl font-semibold text-white mb-1">Equity Partnership (JV)</h3>
+        <p class="text-sm text-text-light/80">Pool capital with DFFB to acquire and operate a portfolio of RCFEs. You share in operating income and long-term equity upside.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-xl font-semibold text-white mb-1">Fund Participation</h3>
+        <p class="text-sm text-text-light/80">Invest in a diversified vehicle that acquires, develops, and operates multiple homes across California markets. Lower per-property risk, diversified revenue.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="Interested in our investor materials?"
+    cta="Book an Investor Call"
+  />
+</BaseLayout>

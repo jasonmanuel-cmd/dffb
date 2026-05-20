@@ -1,0 +1,58 @@
+---
+import site from "../content/site.json";
+---
+
+<header class="sticky top-0 z-50 bg-navy-dark/94 backdrop-blur-md border-b border-white/15">
+  <div class="header-inner section-container flex items-center justify-between gap-4 md:gap-6 py-3 md:py-3.5 relative">
+    <a href="/" class="flex items-center gap-3 no-underline">
+      <picture>
+        <source srcset="/dffb-logo-small.webp" type="image/webp" />
+        <img src="/dffb-logo-small.png" alt="DFFB Senior Living logo" width="200" height="207" class="w-10 h-10 md:w-[46px] md:h-[46px] object-contain" decoding="async" />
+      </picture>
+      <span class="font-bold text-beige tracking-widest text-sm md:text-base">
+        DFFB SENIOR LIVING
+      </span>
+    </a>
+
+    <button
+      class="nav-toggle lg:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] px-3.5 border border-white/15 bg-transparent text-beige rounded-lg text-sm font-semibold cursor-pointer"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Open menu"
+    >
+      Menu
+    </button>
+
+    <nav
+      id="primary-nav"
+      aria-label="Primary"
+      class="hidden lg:flex lg:flex-wrap lg:items-center lg:gap-3.5 absolute lg:relative top-full left-0 right-0 bg-navy-dark/98 lg:bg-transparent border-b lg:border-0 border-white/15 rounded-b-2xl lg:rounded-none shadow-2xl lg:shadow-none p-4 lg:p-0 flex-col lg:flex-row gap-3 lg:gap-3.5 max-h-[calc(100vh-92px)] overflow-auto lg:max-h-none"
+    >
+      <a href="/" class="text-sm text-text-light hover:text-beige no-underline transition-colors py-2 lg:py-0">Home</a>
+      <a href="/partner" class="text-sm text-text-light hover:text-beige no-underline transition-colors py-2 lg:py-0">Partner With Us</a>
+      <a href="/owners" class="text-sm text-text-light hover:text-beige no-underline transition-colors py-2 lg:py-0">For Property Owners</a>
+      <a href="/investors" class="text-sm text-text-light hover:text-beige no-underline transition-colors py-2 lg:py-0">For Investors</a>
+      <a href="/model" class="text-sm text-text-light hover:text-beige no-underline transition-colors py-2 lg:py-0">Our Model</a>
+      <a href="/markets" class="text-sm text-text-light hover:text-beige no-underline transition-colors py-2 lg:py-0">Markets</a>
+      <a href="/faq" class="text-sm text-text-light hover:text-beige no-underline transition-colors py-2 lg:py-0">FAQ</a>
+      <a href="/contact" class="btn btn-primary text-sm whitespace-nowrap">Book a Partnership Call</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header-inner.menu-open nav {
+    display: flex;
+  }
+  @media (max-width: 1023px) {
+    nav a, nav .btn {
+      width: 100%;
+      text-align: left;
+    }
+    nav .btn {
+      justify-content: center;
+      margin-top: 0.25rem;
+    }
+  }
+</style>

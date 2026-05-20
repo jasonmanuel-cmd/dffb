@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import EconomicsBand from "../components/EconomicsBand.astro";
+import ProcessTimeline from "../components/ProcessTimeline.astro";
+import CtaBar from "../components/CtaBar.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="Our Model"
+  description="DFFB's vertically integrated small-home RCFE model. How we convert residential properties into licensed, high-quality senior care homes at scale."
+  canonical="https://dffbseniorliving.com/model"
+>
+  <Hero
+    headline="Small Homes, Institutional Operations"
+    subheadline="We don't build senior homes. We convert standard residential properties into licensed, compliant, revenue-generating care homes backed by institutional-grade operational infrastructure."
+    cta1="Book a Partnership Call"
+    cta1Link="/contact"
+  />
+
+  <section class="my-14">
+    <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-4">The Vertically Integrated Advantage</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Acquisition</h3>
+        <p class="text-sm text-text-light/80">We source and evaluate single-family properties in target markets. Any property that meets zoning, layout, and location criteria can become a licensed care facility.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Licensing & Compliance</h3>
+        <p class="text-sm text-text-light/80">DFFB manages the full CDSS licensing process, including fire/life safety approval, health inspections, and zoning compliance. Our team handles every regulatory filing.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Staffing & Operations</h3>
+        <p class="text-sm text-text-light/80">We recruit, train, and manage qualified caregivers, administrative staff, and administrative support. 24/7 operations with compliance monitoring and quality assurance.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg font-semibold text-white mb-2">Placement & Revenue</h3>
+        <p class="text-sm text-text-light/80">Our placement team works with hospitals, social workers, and community organizations to maintain high occupancy. Revenue is needs-based and recurring.</p>
+      </div>
+    </div>
+  </section>
+
+  <EconomicsBand
+    title="Per-Home Economics"
+    subtitle="Representative monthly figures for a typical 6-resident licensed home."
+  />
+
+  <section class="my-14 card">
+    <h2 class="text-xl md:text-2xl font-semibold text-beige mb-4">Scale Economics</h2>
+    <p class="text-sm text-text-light/80 leading-relaxed mb-4">
+      The real power of the DFFB model emerges at portfolio scale. Each additional home brings marginal operational costs down, while centralized infrastructure &mdash; licensing, compliance, HR, billing, placement &mdash; serves the entire portfolio.
+    </p>
+    <p class="text-sm text-text-light/80 leading-relaxed">
+      A 10-home portfolio generates an estimated <strong class="text-white">$3.4M+ annual gross revenue</strong> with portfolio-level margins that outperform standalone facilities.
+    </p>
+    <p class="text-xs text-text-light/50 mt-3">Projections based on current operating data. Actual results vary.</p>
+  </section>
+
+  <ProcessTimeline
+    title="How We Scale"
+  />
+
+  <CtaBar
+    headline="Want to see a detailed model?"
+    cta="Book a Partnership Call"
+  />
+</BaseLayout>
