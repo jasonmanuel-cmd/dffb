@@ -2,46 +2,48 @@
 import site from "../content/site.json";
 ---
 
-<footer class="border-t border-white/15 mt-16 bg-navy-dark/55">
-  <div class="section-container py-8 md:py-10 grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 md:gap-10 items-start text-sm">
-    <div>
-      <p class="font-bold text-beige tracking-widest text-sm mb-2.5">
-        {site.siteName}
-      </p>
-      <p class="text-text-light/85 leading-relaxed max-w-[36ch] mb-2">
-        {site.address}
-      </p>
-      <p><a href={`tel:${site.phoneLink}`} class="text-beige no-underline font-semibold">{site.phone}</a></p>
-      <p class="text-text-light/70 text-xs mt-2.5">
-        Christopher Moore &middot; Senior Living Housing &middot;
-        <a href="https://dffbseniorliving.com" target="_blank" rel="noopener" class="text-beige no-underline">dffbseniorliving.com</a>
-      </p>
+<footer class="border-t border-white/[0.06] mt-20">
+  <div class="section-container py-10 md:py-14">
+    <div class="grid grid-cols-1 md:grid-cols-[1.2fr_auto] gap-8 md:gap-16 items-start">
+      <div>
+        <p class="font-display font-semibold text-beige tracking-widest text-sm mb-3">DFFB SENIOR LIVING</p>
+        <p class="text-sm text-text-light/60 leading-relaxed max-w-[40ch] mb-3">
+          {site.address}
+        </p>
+        <p class="text-sm">
+          <a href={`tel:${site.phoneLink}`} class="text-beige no-underline font-semibold hover:underline">{site.phone}</a>
+        </p>
+        <p class="text-xs text-text-light/50 mt-1">
+          <a href={`mailto:${site.email}`} class="text-text-light/60 no-underline hover:text-beige">{site.email}</a>
+        </p>
+        <p class="text-xs text-text-light/40 mt-4">
+          Christopher Moore &middot; Senior Living Housing
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-x-6 gap-y-3 items-start">
+        <a href="/" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">Home</a>
+        <a href="/partner" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">Partner With Us</a>
+        <a href="/owners" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">For Owners</a>
+        <a href="/investors" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">For Investors</a>
+        <a href="/model" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">Our Model</a>
+        <a href="/markets" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">Markets</a>
+        <a href="/faq" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">FAQ</a>
+        <a href="/contact" class="text-sm text-text-light/60 no-underline hover:text-beige transition-colors">Contact</a>
+      </div>
     </div>
 
-    <nav aria-label="Footer" class="flex flex-wrap gap-2.5 md:gap-4 items-start justify-start md:justify-end">
-      <a href="/" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">Home</a>
-      <a href="/partner" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">Partner With Us</a>
-      <a href="/owners" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">For Owners</a>
-      <a href="/investors" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">For Investors</a>
-      <a href="/model" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">Our Model</a>
-      <a href="/markets" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">Markets</a>
-      <a href="/faq" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">FAQ</a>
-      <a href="/contact" class="text-text-light no-underline text-sm font-medium hover:text-beige px-3 py-2.5 min-h-[44px] border border-white/15 rounded-xl bg-white/[0.04] flex items-center justify-center md:border-0 md:bg-transparent md:px-0 md:py-0">Contact</a>
-    </nav>
-  </div>
-
-  <div class="section-container border-t border-white/15 py-5 md:py-7 text-center">
-    <p class="text-sm text-text-light/70 leading-relaxed">
-      <a href="https://linktr.ee/DFFB.MANAGEMENTGROUP" target="_blank" rel="noopener" class="text-beige no-underline font-semibold hover:underline">Community Outreach Connection</a>
-    </p>
-    <p class="text-xs text-text-light/60 mt-3">
-      <a href="/privacy" class="text-text-light no-underline hover:text-beige">Privacy</a>
-      <span class="mx-1.5 opacity-60">&middot;</span>
-      <a href="/terms" class="text-text-light no-underline hover:text-beige">Terms</a>
-    </p>
-    <p class="text-xs text-text-light/50 mt-3.5">&copy; 2026 DFFB Management Group. All rights reserved.</p>
-    <p class="text-xs text-text-light/45 mt-2.5">
-      Powered by <a href="https://coaibakersfield.com" target="_blank" rel="noopener noreferrer" class="text-gold no-underline font-semibold hover:underline">coaibakersfield.com</a>
-    </p>
+    <div class="border-t border-white/[0.06] mt-8 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-text-light/40">
+      <div class="flex items-center gap-3">
+        <a href="/privacy" class="text-text-light/40 no-underline hover:text-beige">Privacy</a>
+        <span class="opacity-30">&middot;</span>
+        <a href="/terms" class="text-text-light/40 no-underline hover:text-beige">Terms</a>
+        <span class="opacity-30">&middot;</span>
+        <a href="https://linktr.ee/DFFB.MANAGEMENTGROUP" target="_blank" rel="noopener" class="text-text-light/40 no-underline hover:text-beige">Community Outreach</a>
+      </div>
+      <p class="m-0">
+        &copy; 2026 DFFB Management Group &middot; Powered by <a href="https://coaibakersfield.com" target="_blank" rel="noopener noreferrer" class="text-gold/70 no-underline hover:text-gold">coaibakersfield.com</a>
+      </p>
+    </div>
   </div>
 </footer>

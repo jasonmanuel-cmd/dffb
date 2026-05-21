@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import "../styles/globals.css";
 
 export interface Props {
   title: string;
@@ -40,17 +41,15 @@ const og = ogImage || `${site}/dffb-logo.png`;
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
       onload="this.rel='stylesheet'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet"
       />
     </noscript>
-
-    <link rel="stylesheet" href="/src/styles/globals.css" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNGD74ZHB4"></script>
     <script>
@@ -60,14 +59,24 @@ const og = ogImage || `${site}/dffb-logo.png`;
       gtag('config', 'G-XNGD74ZHB4');
     </script>
   </head>
-  <body class="bg-gradient-to-b from-navy to-navy-dark min-h-screen">
+  <body class="bg-navy min-h-screen">
+    <div aria-hidden="true" class="fixed inset-0 pointer-events-none z-[1] opacity-[0.015]"
+      style="background-image: url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")">
+    </div>
+    <div aria-hidden="true" class="fixed inset-0 pointer-events-none z-[1] opacity-30"
+      style="background: radial-gradient(ellipse 70% 50% at 30% 0%, rgba(200,163,84,0.06) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 80% 100%, rgba(243,232,213,0.04) 0%, transparent 70%);">
+    </div>
+
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <Header />
-    <main id="main-content" class="section-container py-6 md:py-8">
-      <slot />
-    </main>
-    <Footer />
+    <div class="relative z-[2]">
+      <Header />
+      <main id="main-content" class="section-container py-6 md:py-8">
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>
 
@@ -80,6 +89,22 @@ const og = ogImage || `${site}/dffb-logo.png`;
         const open = inner.classList.toggle("menu-open");
         toggle.setAttribute("aria-expanded", String(open));
       });
+    }
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
     }
   })();
 </script>

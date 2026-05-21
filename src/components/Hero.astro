@@ -14,15 +14,26 @@ export interface Props {
 const { headline, subheadline, cta1, cta1Link, cta2, cta2Link, supportingLine } = Astro.props;
 ---
 
-<section class="py-16 md:py-24">
-  <div class="max-w-4xl">
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white mb-5">
-      {headline}
-    </h1>
-    <p class="text-lg md:text-xl text-text-light/90 leading-relaxed max-w-[65ch] mb-8">
-      {subheadline}
-    </p>
-    <div class="flex flex-wrap gap-3">
+<section class="relative overflow-hidden py-20 md:py-28">
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 60% 50% at 20% 30%, rgba(200,163,84,0.06) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 50% at 80% 60%, rgba(243,232,213,0.03) 0%, transparent 70%);">
+  </div>
+  <div aria-hidden="true" class="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-gold/20 to-transparent"></div>
+  <div aria-hidden="true" class="absolute right-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-gold/10 to-transparent"></div>
+
+  <div class="relative">
+    <div class="reveal">
+      <h1 class="heading-xl text-balance mb-5">
+        {headline}
+      </h1>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <p class="text-lg md:text-xl text-text-light/80 leading-relaxed max-w-[60ch] mb-8">
+        {subheadline}
+      </p>
+    </div>
+    <div class="reveal reveal-delay-2 flex flex-wrap gap-3">
       {cta1 && (
         <a href={cta1Link || "/contact"} class="btn btn-primary text-base px-7 py-3.5">
           {cta1}
@@ -35,7 +46,7 @@ const { headline, subheadline, cta1, cta1Link, cta2, cta2Link, supportingLine } 
       )}
     </div>
     {supportingLine && (
-      <p class="mt-5 text-sm text-text-light/60">{supportingLine}</p>
+      <p class="reveal reveal-delay-3 mt-6 text-sm text-text-light/40">{supportingLine}</p>
     )}
   </div>
 </section>

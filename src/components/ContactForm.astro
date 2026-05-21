@@ -2,36 +2,37 @@
 import site from "../content/site.json";
 ---
 
-<section class="my-14">
-  <form id="contact-form" action="https://formspree.io/f/xwvknjyb" method="POST" accept-charset="UTF-8" class="card max-w-2xl mx-auto space-y-5">
-    <h2 class="text-2xl md:text-3xl font-semibold text-beige mb-4">Get in Touch</h2>
+<section class="my-16 md:my-20">
+  <form id="contact-form" action="https://formspree.io/f/xwvknjyb" method="POST" accept-charset="UTF-8" class="card max-w-xl mx-auto space-y-5">
+    <h2 class="heading-md text-balance mb-2">Get in Touch</h2>
+    <p class="text-sm text-text-light/60 mb-4">Fill out the form and we'll get back to you within 48 hours.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
-        <label for="name" class="block text-xs uppercase tracking-widest text-text-light/60 mb-1.5">Full Name</label>
-        <input type="text" id="name" name="name" required minlength="2" maxlength="100" placeholder="Your name" class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white text-sm placeholder:text-text-light/50 focus:outline-none focus:border-gold/60 transition-colors" />
+        <label for="name" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Full Name</label>
+        <input type="text" id="name" name="name" required minlength="2" maxlength="100" placeholder="Your name" class="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-sm placeholder:text-text-light/30 focus:outline-none focus:border-gold/50 focus:bg-white/[0.06] transition-all duration-300" />
       </div>
       <div>
-        <label for="email" class="block text-xs uppercase tracking-widest text-text-light/60 mb-1.5">Email Address</label>
-        <input type="email" id="email" name="email" required minlength="5" maxlength="254" placeholder="your@email.com" class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white text-sm placeholder:text-text-light/50 focus:outline-none focus:border-gold/60 transition-colors" />
+        <label for="email" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Email Address</label>
+        <input type="email" id="email" name="email" required minlength="5" maxlength="254" placeholder="your@email.com" class="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-sm placeholder:text-text-light/30 focus:outline-none focus:border-gold/50 focus:bg-white/[0.06] transition-all duration-300" />
       </div>
     </div>
 
     <div>
-      <label for="interest" class="block text-xs uppercase tracking-widest text-text-light/60 mb-1.5">I am a...</label>
-      <select id="interest" name="_subject" class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-gold/60 transition-colors">
-        <option value="" selected disabled>Select interest &hellip;</option>
-        <option value="Property Owner Inquiry">Property Owner</option>
-        <option value="Investor Inquiry">Investor / Capital Partner</option>
-        <option value="Operator Partnership Inquiry">Operator / Property Manager</option>
-        <option value="Family / Resident Inquiry">Family Seeking Care</option>
-        <option value="General Inquiry">Other</option>
+      <label for="interest" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">I am a...</label>
+      <select id="interest" name="_subject" class="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold/50 focus:bg-white/[0.06] transition-all duration-300">
+        <option value="" selected disabled class="bg-navy-dark">Select interest &hellip;</option>
+        <option value="Property Owner Inquiry" class="bg-navy-dark">Property Owner</option>
+        <option value="Investor Inquiry" class="bg-navy-dark">Investor / Capital Partner</option>
+        <option value="Operator Partnership Inquiry" class="bg-navy-dark">Operator / Property Manager</option>
+        <option value="Family / Resident Inquiry" class="bg-navy-dark">Family Seeking Care</option>
+        <option value="General Inquiry" class="bg-navy-dark">Other</option>
       </select>
     </div>
 
     <div>
-      <label for="message" class="block text-xs uppercase tracking-widest text-text-light/60 mb-1.5">Message</label>
-      <textarea id="message" name="message" required rows="5" minlength="10" maxlength="5000" placeholder="Tell us about your property, investment goals, or care needs..." class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white text-sm placeholder:text-text-light/50 focus:outline-none focus:border-gold/60 transition-colors resize-y"></textarea>
+      <label for="message" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Message</label>
+      <textarea id="message" name="message" required rows="5" minlength="10" maxlength="5000" placeholder="Tell us about your property, investment goals, or care needs..." class="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-sm placeholder:text-text-light/30 focus:outline-none focus:border-gold/50 focus:bg-white/[0.06] transition-all duration-300 resize-y"></textarea>
     </div>
 
     <input type="hidden" name="_to" value={site.email} />
@@ -41,8 +42,8 @@ import site from "../content/site.json";
       Send Message
     </button>
 
-    <p class="text-xs text-text-light/50 text-center">
-      This form sends directly to <a href={`mailto:${site.email}`} class="text-beige no-underline">{site.email}</a>. No spam.
+    <p class="text-xs text-text-light/30 text-center">
+      This form sends directly to <a href={`mailto:${site.email}`} class="text-beige/70 no-underline hover:text-beige">{site.email}</a>.
     </p>
   </form>
 </section>
