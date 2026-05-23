@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PropertyAssessmentForm from "../components/PropertyAssessmentForm.astro";
+import site from "../content/site.json";
+---
+
+<BaseLayout
+  title="Request a Property Assessment"
+  description="Submit your property for a complimentary qualification review by DFFB Senior Living. See if your property fits our operating model."
+  canonical="https://dffbseniorliving.com/assessment"
+>
+  <section class="mb-8 md:mb-10">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white mb-3">Request a Property Assessment</h1>
+    <p class="text-text-light/80 leading-relaxed max-w-[65ch] text-base md:text-lg">
+      Tell us about your property. If it fits our model, we will reach out with a no-obligation qualification review.
+    </p>
+  </section>
+
+  <PropertyAssessmentForm />
+</BaseLayout>

@@ -1,0 +1,951 @@
+---
+import site from "../content/site.json";
+---
+
+<section class="my-8 md:my-14">
+
+  <div id="assessment-form-root" class="max-w-3xl mx-auto">
+
+    <!-- Progress Bar -->
+    <nav aria-label="Form progress" class="mb-8">
+      <!-- Mobile: compact dots -->
+      <div class="progress-compact md:hidden flex items-center justify-center gap-2 text-sm">
+        <span class="text-text-light/50 text-xs" id="step-label-mobile">Step 1 of 5</span>
+        <div class="flex gap-1.5">
+          {["1","2","3","4","5"].map((s) => (
+            <span class="progress-dot block w-2 h-2 rounded-full bg-white/[0.12] transition-all duration-300" data-dot={s}></span>
+          ))}
+        </div>
+      </div>
+      <!-- Desktop: labeled steps -->
+      <ol class="hidden md:flex items-center justify-between gap-0 relative">
+        <li class="progress-line absolute left-[10%] right-[10%] top-[15px] h-px bg-white/[0.1] -z-[1]"></li>
+        {[
+          { step: "1", label: "Contact" },
+          { step: "2", label: "Property" },
+          { step: "3", label: "Financials" },
+          { step: "4", label: "Fit & Constraints" },
+          { step: "5", label: "Review & Submit" },
+        ].map((s) => (
+          <li class="flex flex-col items-center gap-1.5 cursor-default">
+            <span class="progress-step-label flex items-center justify-center w-[30px] h-[30px] rounded-full text-xs font-bold transition-all duration-300 bg-white/[0.08] text-text-light/50" data-desktop-step={s.step}>
+              {s.step}
+            </span>
+            <span class="text-[10px] uppercase tracking-[0.1em] font-medium transition-colors duration-300 text-text-light/30" data-desktop-label={s.step}>{s.label}</span>
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <!-- Steps -->
+    <form id="assessment-form" action="https://formspree.io/f/xwvknjyb" method="POST" accept-charset="UTF-8" novalidate>
+
+      <!-- ===== STEP 1: CONTACT ===== -->
+      <fieldset class="form-step" data-step="1">
+        <legend class="heading-md mb-1">Contact Information</legend>
+        <p class="text-sm text-text-light/50 mb-5">We use this to review your property fit and contact you about next steps.</p>
+
+        <div class="card space-y-4">
+          <div>
+            <label for="fname" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Full name <span class="text-alert">*</span></label>
+            <input type="text" id="fname" name="fname" required minlength="2" maxlength="100" placeholder="Your full name" class="field" autocomplete="name" />
+          </div>
+
+          <div>
+            <label for="femail" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Email <span class="text-alert">*</span></label>
+            <input type="email" id="femail" name="femail" required minlength="5" maxlength="254" placeholder="your@email.com" class="field" autocomplete="email" />
+          </div>
+
+          <div>
+            <label for="fphone" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Mobile phone <span class="text-alert">*</span></label>
+            <input type="tel" id="fphone" name="fphone" required placeholder="(555) 123-4567" class="field" autocomplete="tel" data-phone-mask />
+            <p class="text-xs text-text-light/30 mt-1">Use the number where you can actually be reached.</p>
+          </div>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Preferred contact method <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-3">
+              {["Call","Text","Email"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="contact_method" value={opt.toLowerCase()} required />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Best time to contact</legend>
+            <div class="flex flex-wrap gap-3">
+              {["Morning","Afternoon","Evening"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="contact_time" value={opt.toLowerCase()} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Are you the owner or decision-maker? <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-3">
+              {["Yes","No","One of several"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="decision_maker" value={opt.toLowerCase().replace(/\s+/g,"_")} required />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="flex justify-end mt-6">
+          <button type="button" class="btn btn-primary text-base" data-next="1">Next: Property Details</button>
+        </div>
+      </fieldset>
+
+      <!-- ===== STEP 2: PROPERTY ===== -->
+      <fieldset class="form-step" data-step="2">
+        <legend class="heading-md mb-1">Property Details</legend>
+        <p class="text-sm text-text-light/50 mb-5">We are evaluating whether the property has the bones for a stronger operating model.</p>
+
+        <div class="card space-y-4">
+          <div>
+            <label for="faddress" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Property address <span class="text-alert">*</span></label>
+            <input type="text" id="faddress" name="faddress" required minlength="5" maxlength="200" placeholder="123 Main St, City, State ZIP" class="field" autocomplete="street-address" />
+          </div>
+
+          <div>
+            <label for="ftype" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Property type <span class="text-alert">*</span></label>
+            <select id="ftype" name="ftype" required class="field">
+              <option value="" disabled selected>Select type</option>
+              <option value="single-family">Single-family</option>
+              <option value="duplex">Duplex</option>
+              <option value="triplex">Triplex</option>
+              <option value="4-plus">4+ units</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="fsqft" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Square footage <span class="text-alert">*</span></label>
+              <input type="number" id="fsqft" name="fsqft" required min="1" max="999999" placeholder="e.g. 1800" class="field" />
+            </div>
+            <div>
+              <label for="flotsize" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Lot size (sq ft)</label>
+              <input type="number" id="flotsize" name="flotsize" min="1" max="9999999" placeholder="Optional" class="field" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label for="fbeds" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Bedrooms</label>
+              <input type="number" id="fbeds" name="fbeds" min="0" max="99" placeholder="e.g. 3" class="field" />
+            </div>
+            <div>
+              <label for="fbaths" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Bathrooms</label>
+              <input type="number" id="fbaths" name="fbaths" min="0" max="99" placeholder="e.g. 2" class="field" step="0.5" />
+            </div>
+            <div>
+              <label for="fyear" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Year built</label>
+              <input type="number" id="fyear" name="fyear" min="1800" max="2026" placeholder="e.g. 1978" class="field" />
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Garage or driveway parking?</legend>
+            <div class="flex flex-wrap gap-3">
+              {["Yes","No"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="parking" value={opt.toLowerCase()} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Stories</legend>
+            <div class="flex flex-wrap gap-3">
+              {["1","2","3+"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="stories" value={opt} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="foccupancy" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Current occupancy <span class="text-alert">*</span></label>
+            <select id="foccupancy" name="foccupancy" required class="field">
+              <option value="" disabled selected>Select occupancy</option>
+              <option value="vacant">Vacant</option>
+              <option value="owner-occupied">Owner-occupied</option>
+              <option value="tenant-occupied">Tenant-occupied</option>
+              <option value="partially-occupied">Partially occupied</option>
+            </select>
+          </div>
+
+          <!-- Conditional: Tenant-occupied -->
+          <div id="tenant-fields" class="hidden space-y-4 pl-3 border-l-2 border-gold/50">
+            <p class="text-xs uppercase tracking-widest text-gold/70 font-medium">Tenant Details</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="frent" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Current monthly rent</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-light/40 text-sm">$</span>
+                  <input type="text" id="frent" name="frent" placeholder="0.00" class="field pl-7" data-currency />
+                </div>
+              </div>
+              <div>
+                <label for fleease class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Lease expiration date</label>
+                <input type="date" id="flease" name="flease" class="field" />
+              </div>
+            </div>
+            <div>
+              <label for="foccupied_units" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Number of occupied units</label>
+              <input type="number" id="foccupied_units" name="foccupied_units" min="0" max="999" placeholder="e.g. 1" class="field" />
+            </div>
+          </div>
+
+          <!-- Conditional: 4+ units -->
+          <div id="multifamily-fields" class="hidden space-y-4 pl-3 border-l-2 border-gold/50">
+            <p class="text-xs uppercase tracking-widest text-gold/70 font-medium">Multi-Unit Details</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label for="ftotal_units" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Total units</label>
+                <input type="number" id="ftotal_units" name="ftotal_units" min="1" max="999" placeholder="e.g. 6" class="field" />
+              </div>
+              <div>
+                <label for="foccupied_mf" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Occupied units</label>
+                <input type="number" id="foccupied_mf" name="foccupied_mf" min="0" max="999" placeholder="e.g. 4" class="field" />
+              </div>
+              <div>
+                <label for="funit_mix" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Unit mix</label>
+                <input type="text" id="funit_mix" name="funit_mix" placeholder="e.g. 2x1BR, 2x2BR" class="field" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-6">
+          <button type="button" class="btn btn-secondary text-sm" data-prev="2">Previous</button>
+          <button type="button" class="btn btn-primary text-base" data-next="2">Next: Financials</button>
+        </div>
+      </fieldset>
+
+      <!-- ===== STEP 3: FINANCIALS ===== -->
+      <fieldset class="form-step" data-step="3">
+        <legend class="heading-md mb-1">Financial Picture</legend>
+        <p class="text-sm text-text-light/50 mb-5">These numbers help us determine whether your property is underperforming, stable, or ready for conversion strategy.</p>
+
+        <div class="card space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            {[
+              { id: "fmortgage", label: "Estimated monthly mortgage payment" },
+              { id: "ftaxes", label: "Monthly property taxes" },
+              { id: "finsurance", label: "Monthly insurance" },
+              { id: "futils", label: "Monthly utilities" },
+              { id: "fhoa", label: "HOA dues (if any)" },
+              { id: "fmaintenance", label: "Average monthly repairs/maintenance" },
+            ].map((f) => (
+              <div>
+                <label for={f.id} class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">{f.label}</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-light/40 text-sm">$</span>
+                  <input type="text" id={f.id} name={f.id} placeholder="0.00" class="field pl-7" data-currency />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Is the property currently: <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-3">
+              {["Cash-flow positive","Break-even","Losing money"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="cashflow_status" value={opt.toLowerCase().replace(/\s+/g,"_")} required />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="fincome" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Estimated current monthly income from property</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-light/40 text-sm">$</span>
+              <input type="text" id="fincome" name="fincome" placeholder="0.00" class="field pl-7" data-currency />
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Are you open to operational changes to improve income? <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-3">
+              {["Yes","No","Maybe"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="open_changes" value={opt.toLowerCase()} required />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="flex items-center justify-between mt-6">
+          <button type="button" class="btn btn-secondary text-sm" data-prev="3">Previous</button>
+          <button type="button" class="btn btn-primary text-base" data-next="3">Next: Fit & Constraints</button>
+        </div>
+      </fieldset>
+
+      <!-- ===== STEP 4: FIT + CONSTRAINTS ===== -->
+      <fieldset class="form-step" data-step="4">
+        <legend class="heading-md mb-1">Fit &amp; Constraints</legend>
+        <p class="text-sm text-text-light/50 mb-5">This section helps us identify friction early instead of wasting your time later.</p>
+
+        <div class="card space-y-5">
+
+          <!-- HOA -->
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Any HOA restrictions? <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-3">
+              {["Yes","No"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="hoa_restrictions" value={opt.toLowerCase()} required />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+            <div id="hoa-details" class="hidden mt-3">
+              <textarea name="hoa_details" placeholder="Describe restrictions..." class="field" rows="2"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- City/Code -->
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Any city/code issues? <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-3">
+              {["Yes","No"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="code_issues" value={opt.toLowerCase()} required />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+            <div id="code-details" class="hidden mt-3">
+              <textarea name="code_details" placeholder="What issues exist?" class="field" rows="2"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- Insurance -->
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Any insurance limitations? <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-3">
+              {["Yes","No"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="insurance_limits" value={opt.toLowerCase()} required />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+            <div id="insurance-details" class="hidden mt-3">
+              <textarea name="insurance_details" placeholder="Describe limitations..." class="field" rows="2"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- Accessibility -->
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Accessibility concerns</legend>
+            <div class="flex flex-wrap gap-2">
+              {["None","Stairs","Narrow hallways","Bathroom limitations","Other"].map((opt) => (
+                <label class="checkbox-chip">
+                  <input type="checkbox" name="accessibility" value={opt.toLowerCase().replace(/\s+/g,"_")} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- Modifications -->
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Existing modifications</legend>
+            <div class="flex flex-wrap gap-2">
+              {["Ramp","Grab bars","Wide doors","Fire sprinklers","Other","None"].map((opt) => (
+                <label class="checkbox-chip">
+                  <input type="checkbox" name="modifications" value={opt.toLowerCase().replace(/\s+/g,"_")} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Outdoor space available?</legend>
+            <div class="flex flex-wrap gap-3">
+              {["Yes","No"].map((opt) => (
+                <label class="radio-chip">
+                  <input type="radio" name="outdoor_space" value={opt.toLowerCase()} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- Partnership Interest -->
+          <fieldset>
+            <legend class="text-xs uppercase tracking-widest text-text-light/40 mb-2 font-medium">Would you consider: <span class="text-alert">*</span></legend>
+            <div class="flex flex-wrap gap-2">
+              {[
+                "Management support",
+                "Consulting only",
+                "Lease partnership",
+                "Property conversion discussion",
+                "Not sure yet",
+              ].map((opt) => (
+                <label class="checkbox-chip">
+                  <input type="checkbox" name="partnership_interest" value={opt.toLowerCase().replace(/\s+/g,"_")} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+            <div id="unsure-fields" class="hidden mt-3">
+              <label for="fsolve" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">What are you trying to solve?</label>
+              <select id="fsolve" name="fsolve" class="field">
+                <option value="" disabled selected>Select primary concern</option>
+                <option value="vacancy">Vacancy</option>
+                <option value="cash_flow">Cash flow</option>
+                <option value="compliance">Compliance</option>
+                <option value="staffing">Staffing</option>
+                <option value="exit_planning">Exit planning</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="flex items-center justify-between mt-6">
+          <button type="button" class="btn btn-secondary text-sm" data-prev="4">Previous</button>
+          <button type="button" class="btn btn-primary text-base" data-next="4">Next: Review</button>
+        </div>
+      </fieldset>
+
+      <!-- ===== STEP 5: REVIEW + SUBMIT ===== -->
+      <fieldset class="form-step" data-step="5">
+        <legend class="heading-md mb-1">Review &amp; Submit</legend>
+        <p class="text-sm text-text-light/50 mb-5">Please review your information before submitting.</p>
+
+        <div class="space-y-4">
+          <!-- Review cards -->
+          <div class="card" id="review-contact">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="text-sm uppercase tracking-widest text-gold font-semibold">Contact</h3>
+              <button type="button" class="text-xs text-gold/80 hover:text-gold underline transition-colors" data-edit="1">Edit</button>
+            </div>
+            <dl class="text-sm space-y-1 text-text-light/80" id="review-contact-data"></dl>
+          </div>
+
+          <div class="card" id="review-property">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="text-sm uppercase tracking-widest text-gold font-semibold">Property</h3>
+              <button type="button" class="text-xs text-gold/80 hover:text-gold underline transition-colors" data-edit="2">Edit</button>
+            </div>
+            <dl class="text-sm space-y-1 text-text-light/80" id="review-property-data"></dl>
+          </div>
+
+          <div class="card" id="review-financials">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="text-sm uppercase tracking-widest text-gold font-semibold">Financials</h3>
+              <button type="button" class="text-xs text-gold/80 hover:text-gold underline transition-colors" data-edit="3">Edit</button>
+            </div>
+            <dl class="text-sm space-y-1 text-text-light/80" id="review-financials-data"></dl>
+          </div>
+
+          <div class="card" id="review-constraints">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="text-sm uppercase tracking-widest text-gold font-semibold">Fit &amp; Constraints</h3>
+              <button type="button" class="text-xs text-gold/80 hover:text-gold underline transition-colors" data-edit="4">Edit</button>
+            </div>
+            <dl class="text-sm space-y-1 text-text-light/80" id="review-constraints-data"></dl>
+          </div>
+
+          <!-- Optional Uploads -->
+          <div class="card">
+            <h3 class="text-sm uppercase tracking-widest text-gold font-semibold mb-3">Optional Uploads</h3>
+            <div class="space-y-3">
+              {["Property photos","Rent roll","Insurance declaration page","Recent utility statement"].map((label) => {
+                const id = "upload-" + label.toLowerCase().replace(/\s+/g,"_");
+                return (
+                  <div>
+                    <label for={id} class="text-xs text-text-light/60 block mb-1">{label}</label>
+                    <input type="file" id={id} name={id} accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="block w-full text-xs text-text-light/50 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-gold/15 file:text-gold hover:file:bg-gold/25 file:cursor-pointer file:transition-colors file:duration-300 cursor-pointer" />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="card">
+            <label for="fnotes" class="block text-xs uppercase tracking-widest text-text-light/40 mb-1.5 font-medium">Anything else we should know?</label>
+            <textarea id="fnotes" name="fnotes" rows="3" placeholder="Optional notes for the review team..." class="field" maxlength="5000"></textarea>
+          </div>
+
+          <!-- Consent -->
+          <div class="card">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" id="fconsent" name="fconsent" required class="mt-0.5 w-4 h-4 accent-gold" />
+              <span class="text-sm text-text-light/70">I confirm this information is accurate to the best of my knowledge. <span class="text-alert">*</span></span>
+            </label>
+            <p class="text-xs text-text-light/30 mt-3">Submitting does not create a contract. It starts a qualification review.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-6">
+          <button type="button" class="btn btn-secondary text-sm" data-prev="5">Previous</button>
+          <button type="submit" class="btn btn-primary text-base" id="submit-btn">Submit for Property Review</button>
+        </div>
+      </fieldset>
+
+    </form>
+
+    <!-- Success Screen -->
+    <div id="success-screen" class="hidden text-center py-10">
+      <div class="w-16 h-16 rounded-full bg-gold/15 flex items-center justify-center mx-auto mb-5">
+        <svg class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h2 class="heading-md mb-3">Review Request Received</h2>
+      <p class="text-text-light/70 max-w-[55ch] mx-auto leading-relaxed mb-6">
+        Your property review request is in. A DFFB team member will review the information and contact you about fit and next steps.
+      </p>
+      <a href="/" class="btn btn-primary">Return Home</a>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  /* Field base */
+  .field {
+    @apply w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-sm placeholder:text-text-light/30 focus:outline-none focus:border-gold/50 focus:bg-white/[0.06] transition-all duration-300;
+  }
+  select.field {
+    @apply appearance-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none'%3E%3Cpath stroke='%23dbe3f5' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m3 5 3 3 3-3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+  select.field option {
+    @apply bg-navy-dark text-white;
+  }
+
+  /* Radio / Checkbox chips */
+  .radio-chip, .checkbox-chip {
+    @apply inline-flex items-center cursor-pointer select-none;
+  }
+  .radio-chip input, .checkbox-chip input {
+    @apply absolute opacity-0 w-0 h-0;
+  }
+  .radio-chip span, .checkbox-chip span {
+    @apply inline-block px-3.5 py-2 rounded-lg text-xs font-medium border border-white/[0.12] bg-white/[0.03] text-text-light/70 transition-all duration-200;
+  }
+  .radio-chip input:checked + span {
+    @apply border-gold/60 bg-gold/10 text-gold;
+  }
+  .checkbox-chip input:checked + span {
+    @apply border-gold/60 bg-gold/10 text-gold;
+  }
+  .radio-chip:hover span, .checkbox-chip:hover span {
+    @apply border-white/[0.2] bg-white/[0.06];
+  }
+
+  /* Step visibility */
+  .form-step {
+    display: none;
+  }
+  .form-step.active {
+    display: block;
+  }
+
+  /* Progress bar */
+  .progress-dot.active {
+    @apply bg-gold;
+    box-shadow: 0 0 8px rgba(200, 163, 84, 0.5);
+  }
+  .progress-dot.completed {
+    @apply bg-gold/60;
+  }
+
+  .progress-step-label.active {
+    @apply bg-gold text-navy-dark;
+  }
+  .progress-step-label.completed {
+    @apply bg-gold/60 text-navy-dark;
+  }
+  .progress-step-label.completed ~ span {
+    @apply text-gold/80;
+  }
+
+  /* Error state */
+  .field.error {
+    @apply border-alert/60 bg-alert/[0.04];
+  }
+  .field-error {
+    @apply text-alert text-xs mt-1;
+  }
+
+  /* Disabled submit */
+  #submit-btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* File input */
+  input[type="file"]::file-selector-button {
+    border: none;
+  }
+
+  /* Date input */
+  input[type="date"].field {
+    color-scheme: dark;
+  }
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  var currentStep = 1;
+  var totalSteps = 5;
+  var formEl = document.getElementById("assessment-form");
+  var successEl = document.getElementById("success-screen");
+
+  // --- Navigation ---
+  function showStep(step) {
+    document.querySelectorAll(".form-step").forEach(function (el) {
+      el.classList.toggle("active", parseInt(el.dataset.step) === step);
+    });
+    // Progress dots (mobile)
+    document.querySelectorAll(".progress-dot").forEach(function (dot) {
+      var s = parseInt(dot.dataset.dot);
+      dot.classList.toggle("active", s === step);
+      dot.classList.toggle("completed", s < step);
+    });
+    // Progress labels (desktop)
+    document.querySelectorAll(".progress-step-label").forEach(function (el) {
+      var s = parseInt(el.dataset.desktopStep);
+      el.classList.toggle("active", s === step);
+      el.classList.toggle("completed", s < step);
+    });
+    document.querySelectorAll("[data-desktop-label]").forEach(function (el) {
+      var s = parseInt(el.dataset.desktopLabel);
+      el.classList.toggle("text-gold/80", s <= step);
+      el.classList.toggle("text-text-light/30", s > step);
+    });
+    document.getElementById("step-label-mobile").textContent = "Step " + step + " of 5";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // --- Validation ---
+  function validateStep(step) {
+    var stepEl = document.querySelector('.form-step[data-step="' + step + '"]');
+    if (!stepEl) return true;
+    var valid = true;
+    stepEl.querySelectorAll("[required]").forEach(function (el) {
+      var err = el.parentNode.querySelector(".field-error");
+      if (!el.value || el.value.trim() === "") {
+        el.classList.add("error");
+        if (!err) {
+          var p = document.createElement("p");
+          p.className = "field-error";
+          p.textContent = "This field is required.";
+          el.parentNode.appendChild(p);
+        }
+        valid = false;
+      } else {
+        el.classList.remove("error");
+        if (err) err.remove();
+      }
+    });
+    // Radio groups
+    stepEl.querySelectorAll("fieldset:not([data-no-validate])").forEach(function (fs) {
+      var radios = fs.querySelectorAll("input[type='radio'][required]");
+      if (radios.length === 0) return;
+      var checked = fs.querySelector("input[type='radio']:checked");
+      var err = fs.querySelector(".field-error");
+      if (!checked) {
+        if (!err) {
+          var p = document.createElement("p");
+          p.className = "field-error";
+          p.textContent = "Please select an option.";
+          fs.appendChild(p);
+        }
+        valid = false;
+      } else {
+        if (err) err.remove();
+      }
+    });
+    return valid;
+  }
+
+  function clearErrors(step) {
+    var stepEl = document.querySelector('.form-step[data-step="' + step + '"]');
+    if (!stepEl) return;
+    stepEl.querySelectorAll(".error").forEach(function (el) { el.classList.remove("error"); });
+    stepEl.querySelectorAll(".field-error").forEach(function (el) { el.remove(); });
+  }
+
+  // --- Next / Previous ---
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-next]");
+    if (btn) {
+      var step = parseInt(btn.dataset.next);
+      clearErrors(step);
+      if (validateStep(step)) {
+        currentStep = step + 1;
+        showStep(currentStep);
+        if (currentStep === totalSteps) buildReview();
+      }
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-prev]");
+    if (btn) {
+      var step = parseInt(btn.dataset.prev);
+      clearErrors(step);
+      currentStep = step - 1;
+      showStep(currentStep);
+    }
+  });
+
+  // --- Edit links (Step 5) ---
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-edit]");
+    if (btn) {
+      var step = parseInt(btn.dataset.edit);
+      currentStep = step;
+      showStep(step);
+    }
+  });
+
+  // --- Conditional Logic ---
+
+  // Occupancy -> tenant fields
+  document.addEventListener("change", function (e) {
+    if (e.target.id === "foccupancy") {
+      var el = document.getElementById("tenant-fields");
+      if (e.target.value === "tenant-occupied") {
+        el.classList.remove("hidden");
+      } else {
+        el.classList.add("hidden");
+      }
+    }
+  });
+
+  // Property type -> multi-family fields
+  document.addEventListener("change", function (e) {
+    if (e.target.id === "ftype") {
+      var el = document.getElementById("multifamily-fields");
+      if (e.target.value === "4-plus") {
+        el.classList.remove("hidden");
+      } else {
+        el.classList.add("hidden");
+      }
+    }
+  });
+
+  // HOA, Code, Insurance textarea toggles
+  document.addEventListener("change", function (e) {
+    if (e.target.name === "hoa_restrictions") {
+      var el = document.getElementById("hoa-details");
+      el.classList.toggle("hidden", e.target.value !== "yes");
+    }
+    if (e.target.name === "code_issues") {
+      var el = document.getElementById("code-details");
+      el.classList.toggle("hidden", e.target.value !== "yes");
+    }
+    if (e.target.name === "insurance_limits") {
+      var el = document.getElementById("insurance-details");
+      el.classList.toggle("hidden", e.target.value !== "yes");
+    }
+  });
+
+  // Not sure yet -> show solve field
+  document.addEventListener("change", function (e) {
+    if (e.target.name === "partnership_interest" && e.target.value === "not_sure_yet") {
+      var el = document.getElementById("unsure-fields");
+      el.classList.toggle("hidden", !e.target.checked);
+    }
+  });
+
+  // --- Currency Mask ---
+  document.addEventListener("input", function (e) {
+    if (e.target.hasAttribute("data-currency") || e.target.hasAttribute("data-phone-mask")) {
+      formatCurrency(e.target);
+    }
+  });
+
+  function formatCurrency(el) {
+    var val = el.value;
+    var digits = val.replace(/\D/g, "");
+    if (digits.length === 0) {
+      el.value = "";
+      return;
+    }
+    // Phone mask
+    if (el.hasAttribute("data-phone-mask")) {
+      var formatted = formatPhone(digits);
+      el.value = formatted;
+      return;
+    }
+    // Currency mask: strip leading zeros, format as dollars.cents
+    var num = parseInt(digits, 10);
+    if (isNaN(num)) { el.value = ""; return; }
+    var dollars = Math.floor(num / 100);
+    var cents = num % 100;
+    var display = dollars.toLocaleString("en-US") + "." + (cents < 10 ? "0" : "") + cents;
+    el.value = display;
+  }
+
+  function formatPhone(digits) {
+    if (digits.length <= 3) return "(" + digits;
+    if (digits.length <= 6) return "(" + digits.slice(0, 3) + ") " + digits.slice(3);
+    return "(" + digits.slice(0, 3) + ") " + digits.slice(3, 6) + "-" + digits.slice(6, 10);
+  }
+
+  // --- Build Review Data ---
+  function buildReview() {
+    var data = collectAllData();
+    renderReview("review-contact-data", [
+      ["Name", data.fname],
+      ["Email", data.femail],
+      ["Phone", data.fphone],
+      ["Contact Method", data.contact_method],
+      ["Best Time", data.contact_time],
+      ["Decision Maker", data.decision_maker],
+    ]);
+    renderReview("review-property-data", [
+      ["Address", data.faddress],
+      ["Type", data.ftype],
+      ["Sq Ft", data.fsqft],
+      ["Lot Size", data.flotsize || "—"],
+      ["Bedrooms", data.fbeds || "—"],
+      ["Bathrooms", data.fbaths || "—"],
+      ["Year Built", data.fyear || "—"],
+      ["Parking", data.parking || "—"],
+      ["Stories", data.stories || "—"],
+      ["Occupancy", data.foccupancy],
+    ]);
+    var financials = [
+      ["Mortgage", data.fmortgage ? "$" + data.fmortgage : "—"],
+      ["Taxes", data.ftaxes ? "$" + data.ftaxes : "—"],
+      ["Insurance", data.finsurance ? "$" + data.finsurance : "—"],
+      ["Utilities", data.futils ? "$" + data.futils : "—"],
+      ["HOA", data.fhoa ? "$" + data.fhoa : "—"],
+      ["Maintenance", data.fmaintenance ? "$" + data.fmaintenance : "—"],
+      ["Cash Flow", data.cashflow_status],
+      ["Monthly Income", data.fincome ? "$" + data.fincome : "—"],
+      ["Open to Changes", data.open_changes],
+    ];
+    renderReview("review-financials-data", financials);
+
+    var access = Array.from(document.querySelectorAll("input[name='accessibility']:checked")).map(function (c) { return c.value; }).join(", ") || "—";
+    var mods = Array.from(document.querySelectorAll("input[name='modifications']:checked")).map(function (c) { return c.value; }).join(", ") || "—";
+    var partnership = Array.from(document.querySelectorAll("input[name='partnership_interest']:checked")).map(function (c) { return c.value; }).join(", ") || "—";
+    renderReview("review-constraints-data", [
+      ["HOA Restrictions", data.hoa_restrictions],
+      ["City/Code Issues", data.code_issues],
+      ["Insurance Limits", data.insurance_limits],
+      ["Accessibility", access],
+      ["Modifications", mods],
+      ["Outdoor Space", data.outdoor_space || "—"],
+      ["Partnership Interest", partnership],
+    ]);
+  }
+
+  function renderReview(elId, rows) {
+    var el = document.getElementById(elId);
+    if (!el) return;
+    el.innerHTML = "";
+    rows.forEach(function (row) {
+      if (row[1] && row[1] !== "—" && row[1] !== "") {
+        var dt = document.createElement("dt");
+        dt.className = "text-xs text-text-light/40 uppercase tracking-widest";
+        dt.textContent = row[0];
+        var dd = document.createElement("dd");
+        dd.className = "mb-2 last:mb-0";
+        dd.textContent = row[1];
+        el.appendChild(dt);
+        el.appendChild(dd);
+      }
+    });
+  }
+
+  // --- Collect All Data ---
+  function collectAllData() {
+    var data = {};
+    var formData = new FormData(formEl);
+    formData.forEach(function (value, key) {
+      data[key] = value;
+    });
+    return data;
+  }
+
+  // --- Submission ---
+  formEl.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearErrors(5);
+    if (!validateStep(5)) return;
+
+    var consent = document.getElementById("fconsent");
+    if (!consent.checked) {
+      consent.focus();
+      consent.parentElement.querySelector("span") && consent.parentElement.querySelector("span").classList.add("text-alert");
+      return;
+    }
+
+    var btn = document.getElementById("submit-btn");
+    btn.disabled = true;
+    btn.textContent = "Submitting...";
+
+    var data = collectAllData();
+    // Also collect checkbox groups as arrays
+    data.accessibility = Array.from(document.querySelectorAll("input[name='accessibility']:checked")).map(function (c) { return c.value; });
+    data.modifications = Array.from(document.querySelectorAll("input[name='modifications']:checked")).map(function (c) { return c.value; });
+    data.partnership_interest = Array.from(document.querySelectorAll("input[name='partnership_interest']:checked")).map(function (c) { return c.value; });
+    data._subject = "Property Assessment: " + (data.fname || "Unknown");
+    data._replyto = data.femail || "";
+    data._to = "dffbseniorliving@gmail.com";
+
+    fetch(formEl.action, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    })
+    .then(function (resp) { return resp.json(); })
+    .then(function (result) {
+      formEl.style.display = "none";
+      successEl.classList.remove("hidden");
+      if (typeof gtag === "function") {
+        gtag("event", "form_submit", {
+          event_category: "assessment",
+          event_label: "Property Assessment",
+        });
+      }
+    })
+    .catch(function () {
+      btn.disabled = false;
+      btn.textContent = "Submit for Property Review";
+      alert("Something went wrong. Please try again or email us directly at dffbseniorliving@gmail.com.");
+    });
+  });
+
+  // --- Init ---
+  showStep(1);
+})();
+</script>
