@@ -47,3 +47,51 @@ import site from "../content/site.json";
     </p>
   </form>
 </section>
+
+<script>
+  const MAKE_WEBHOOK = 'https://hook.us2.make.com/j1sezo54ipnlrut56bh4ylit5yo9rqr5';
+
+  document.getElementById('contact-form')?.addEventListener('submit', function () {
+    const name = (document.getElementById('name') as HTMLInputElement)?.value?.trim() || '';
+    const nameParts = name.split(' ');
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
+    const email = (document.getElementById('email') as HTMLInputElement)?.value?.trim() || '';
+    const interest = (document.getElementById('interest') as HTMLSelectElement)?.value || '';
+    const message = (document.getElementById('message') as HTMLTextAreaElement)?.value?.trim() || '';
+    const params = new URLSearchParams(window.location.search);
+
+    const leadScore = 10 + (email ? 5 : 0) + (interest ? 5 : 0);
+    const leadGrade = leadScore >= 90 ? 'Hot' : leadScore >= 70 ? 'Warm' : 'Nurture';
+
+    const payload = {
+      'First Name': firstName,
+      'Last Name': lastName,
+      'Email': email,
+      'Phone': '',
+      'Company': '',
+      'Service': interest,
+      'Who For': '',
+      'Timeframe': '',
+      'Budget': '',
+      'Decision Maker': '',
+      'Contact Method': 'Email',
+      'Best Time': '',
+      'Consultation': '',
+      'Message': message,
+      'Lead Score': leadScore,
+      'Lead Grade': leadGrade,
+      'UTM Source': params.get('utm_source') || 'direct',
+      'UTM Medium': params.get('utm_medium') || '',
+      'UTM Campaign': params.get('utm_campaign') || '',
+      'Timestamp': new Date().toISOString()
+    };
+
+    fetch(MAKE_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      mode: 'no-cors'
+    }).catch(() => {});
+  });
+</script>
